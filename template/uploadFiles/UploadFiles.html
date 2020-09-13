@@ -1,0 +1,10 @@
+{% extends 'login/LayoutHome.html' %}
+{% block body %}
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            {%  csrf_token %}
+            <label for="exampleFormControlFile1">You can Upload multiple Files</label>
+            <input type="file" name = "files" class="form-control-file" id="exampleFormControlFile1" multiple required>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'login/LayoutHome.html'%}
+
+{% block body %}
+{% load static %}
+<div class="row">
+    <div class="col-4 ">
+        <img src="{% static "images/XpessXerox.png" %}" alt="Logo XpessXerox" class="img-fluid">
+        <br><br>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <h4>People Registered</h4>
+                <span class="badge badge-primary badge-pill">10</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <h4>Documents in Queue</h4>
+                <span class="badge badge-primary badge-pill">10</span>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="col-8">
+        <div class="jumbotron text-center">
+            <p class="lead">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between-left"><h4> Cloud Platform <small
+                        class="text-muted">Upload documet form anywhere</small></h4></li>
+                <li class="list-group-item d-flex justify-content-between-left"><h4> PDF Files <small
+                        class="text-muted">Upload PDF files only</small></h4></li>
+                <li class="list-group-item d-flex justify-content-between-left"><h4> No Q <small class="text-muted">Just
+                    visit center and collect documents</small></h4></li>
+                <li class="list-group-item d-flex justify-content-between-left"><h4> Privacy <small class="text-muted">Noone
+                    can see your document</small></h4></li>
+            </ul>
+            </p>
+        </div>
+    </div>
+</div>
+
+{%  endblock %}
