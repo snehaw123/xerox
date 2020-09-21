@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homePage, name = "homepage"),
     path('uploadFiles/', include("uploadFiles.urls")),
+    path('user/', include("login.urls")),
 
 ]
