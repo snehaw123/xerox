@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'login.apps.LoginConfig',
-    'uploadFiles.apps.UploadfilesConfig'
+    'action.apps.ActionConfig',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +136,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')

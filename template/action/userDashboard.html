@@ -1,0 +1,93 @@
+{% extends 'login/LayoutHome.html' %}
+{% block user %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="form-group text-center">
+
+                                <label class="input-group-text custom-label"> You Can Upload Multiple Files </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend ">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input class="custom-file-input" id="inputGroupFile01" multiple name="files"
+                                               required type="file">
+                                        <label class="custom-file-label" for="inputGroupFile01"></label>
+                                    </div>
+                                </div>
+                                <label class="input-group-text custom-label">Print option will apply for all Files</label>
+
+                            </div>
+
+                            <div class="form-group text-center">
+
+                                <select class="form-control" name="printOption" required>
+                                    <option value="0">Print Options</option>
+                                    <option value="1">Per Page B&W</option>
+                                    <option value="2">Back to Back Page B&W</option>
+                                    <option value="3">Per Page Color</option>
+                                </select>
+
+                                <label class="input-group-text custom-label" for="btnUpload">
+                                    <input class="btn btn-primary" id="btnUpload" type="submit" value="Upload">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card">
+                <div class="card-body">
+                    {% for key, value in complex_Dict.items %}
+                    <div class="card">
+                        <div class="card-body">
+                            <p class=" lead font-weight-bold text-center" style="color: #F877F8">{{key}}</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" style="background-color: #FADD57;">#</th>
+                                        <th scope="col" style="background-color: #FADD57;">Document Name</th>
+                                        <th scope="col" style="background-color: #FADD57;">Action</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {% for i in value %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{i}}</td>
+                                        <td>
+                                            <form action="{% url 'action:sendToPrint' %}" method="post">
+                                                {% csrf_token %}
+                                                <input name="option" type="hidden" value="{{key}}"/>
+                                                <input name="fileName" type="hidden" value="{{i}}"/>
+                                                <input class="btn btn-primary" type="submit" value="Print"/>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

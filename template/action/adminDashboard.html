@@ -1,0 +1,49 @@
+{% extends 'login/LayoutHome.html' %}
+{% block admin %}
+
+<h3>Hello, Admin</h3>
+<div class="row">
+
+    {% for key, value in complex_Dict.items %}
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+
+                <p class=" lead font-weight-bold text-center" style="color: #F877F8">{{key}}</p>
+                <div class="d-flex justify-content-center align-items-center container ">
+                    <form action="{% url 'action:adminDashboard' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input name="option" type="hidden" value="{{key}}"/>
+                            <input class="btn btn-primary" type="submit" value="Download"/>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col" style="background-color: #FADD57;">#</th>
+                            <th scope="col" style="background-color: #FADD57;">Document Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in value %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

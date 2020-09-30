@@ -11,6 +11,15 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
     <!--custom css for footer-->
     <link rel="stylesheet" href=" {% static "css/footer.css" %}" >
+    <style>
+        .custom-label{
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 2px;
+                margin-top: 2px;
+                display: block;
+            }
+    </style>
 
     <title>XpressXerox</title>
 </head>
@@ -19,11 +28,30 @@
 
 {%include 'login/include/NavbarHome.html'%}
 <div class="container">
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                {% if message.tags == "success" %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% else %}
+                    <li class="alert alert-danger">{{ message }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
 
     {% block body%}
 
     {% endblock %}
 </div>
+    {% block user%}
+
+    {% endblock %}
+
+    {% block admin%}
+
+    {% endblock %}
+
 <footer class="footer">
     <div class="container">
         <span class="text-muted">Made by Students for the Student.</span>

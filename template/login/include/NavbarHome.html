@@ -11,12 +11,25 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item active">
+                {% if user.username != "amirkanai01@gmail.com" %}
+                    <a class="nav-link" href="{% url  'action:userDashboard'  %}">{{user.username}}</a>
+                {% else %}
+                    <a class="nav-link" href="{% url  'action:adminDashboard'  %}">{{user.username}}</a>
+                {% endif %}
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url  'user:Logout'  %}">LogOut <span class="sr-only">(current)</span></a>
+            </li>
+            {% else %}
             <li class="nav-item active">
                 <a class="nav-link" href="{% url  'user:register'  %}">Register</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{% url  'user:login'  %}">Log In <span class="sr-only">(current)</span></a>
             </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
