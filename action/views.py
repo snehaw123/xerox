@@ -176,10 +176,10 @@ def adminDashboard(request):
                     if user not in user_seq_list:
                         user_seq_list.append(user)
                     if user in user_bill_dict:
-                        user_bill_dict[user] += pageCounter(Path.joinpath(src, file))
+                        user_bill_dict[user] += (pageCounter(Path.joinpath(src, file))%2 + pageCounter(Path.joinpath(src, file))//2)
                         files_full_path.append(Path.joinpath(src, file))
                     else:
-                        user_bill_dict[user] = pageCounter(Path.joinpath(src, file))
+                        user_bill_dict[user] = (pageCounter(Path.joinpath(src, file))%2 + pageCounter(Path.joinpath(src, file))//2)
                         files_full_path.append(Path.joinpath(src, file))
 
                 print("users in queue---->", user_seq_list)

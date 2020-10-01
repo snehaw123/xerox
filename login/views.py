@@ -1,10 +1,11 @@
 import os
-
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from pathlib import Path
 from Xpressxerox.settings import MEDIA_ROOT
+from Xpressxerox.settings import EMAIL_HOST_USER
 
 
 # Create your views here.
@@ -24,7 +25,13 @@ def register(request):
                 user.save()
                 print(user)
                 createUserFolders(user)
-                messages.success(request, "Now you can Login")
+                messages.success(request, "Welcome to XpressXerox")
+                subject = "Thanks for connecting with XpressXerox"
+                message = "We care for your privacy. Dont worry about your details. We do not share with anyone." \
+                          "This will use for only 2 reason login and forget password."
+                sender = EMAIL_HOST_USER
+                receiver = email
+                send_mail(subject, message, sender, [receiver])
                 return redirect("/user/login/")
         else:
             print("Password is not matching ")
