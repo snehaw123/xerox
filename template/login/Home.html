@@ -3,33 +3,30 @@
 {% block body %}
 {% load static %}
 <div class="row">
-    <div class="col-6 ">
+    <div class="col">
         <img src="{% static "images/XpessXerox.png" %}" alt="Logo XpessXerox" class="img-fluid">
         <br><br>
         <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <h6>People Registered</h6>
-                <span class="badge badge-primary badge-pill">10</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <h6>Documents in Queue</h6>
-                <span class="badge badge-primary badge-pill">10</span>
+                <span class="badge badge-primary badge-pill">{{Total_user}}</span>
             </li>
         </ul>
 
 
     </div>
 
-    <div class="col-6">
+    <div class="col">
         <div class="jumbotron text-center">
             <p class="lead">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between-center"><h6> Cloud Platform <small
                         class="text-muted">Upload documet form anywhere</small></h6></li>
-                <li class="list-group-item d-flex justify-content-between-center"><h6> PDF Files <small
-                        class="text-muted">Upload PDF files only</small></h6></li>
-                <li class="list-group-item d-flex justify-content-between-center"><h6> No Q <small class="text-muted">Just
-                    visit center and collect documents</small></h6></li>
+                <li class="list-group-item d-flex justify-content-between-center"><h6> File Support <small
+                        class="text-muted">We support pdf, jpeg, png, jpg file format.</small></h6></li>
+                <li class="list-group-item d-flex justify-content-between-center"><h6> Free Conversion<small class="text-muted">
+                   You can Convert Docx and Doc file to PDF.
+                </small></h6></li>
                 <li class="list-group-item d-flex justify-content-between-center"><h6> Privacy <small class="text-muted">No one
                     can see your document</small></h6></li>
             </ul>

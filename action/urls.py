@@ -9,5 +9,8 @@ urlpatterns = [
     path('adminDashboard/', views.adminDashboard, name= "adminDashboard"),
     path('sendToPrint/', views.sendToPrint, name="sendToPrint"),
     path('handleRequest/', views.handleRequest, name="handleRequest"),
+    path('pendingOrder/', views.pendingOrder, name="pendingOrder"),
+    path('deleteOldOrderID/', views.deleteOldOrderID, name="deleteOldOrderID"),
+    path('docxToPdf/', views.docxToPdf, name="docxToPdf"),
 
 ]

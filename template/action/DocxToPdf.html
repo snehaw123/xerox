@@ -1,0 +1,108 @@
+{% extends 'login/LayoutHome.html' %}
+{% block user %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <form target="_self" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="form-group text-center">
+
+                                <label class="input-group-text custom-label"> You Can Upload Multiple Files. </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend ">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input class="custom-file-input" id="inputGroupFile01" name="files"
+                                               type="file" multiple required>
+                                        <label class="custom-file-label" for="inputGroupFile01"></label>
+                                    </div>
+                                </div>
+                                <label class="input-group-text custom-label">File will auto download.</label>
+
+                            </div>
+
+                            <div class="form-group text-center">
+                                <label class="input-group-text custom-label" for="btnUpload">
+                                    <input class="btn btn-primary btn-block" id="btnUpload" type="submit" value="Upload">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <p>
+                <ul>
+                    <li>
+                        <p>
+                            <strong>Refresh page after download is complete.</strong>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            After Download completed. You can come to Dashboard and upload converted PDF,
+                            after validating conversation.
+                        </p>
+                        <ul>
+                            <li>Single file send to conversion then you will get pdf file with same name.</li>
+                            <li>If multiple files are uploaded then you will get Zip file.</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4>Why to convert word file to PDF before getting photocopy? </h4>
+                <p>
+                <ul>
+                    <li>
+                        <p>
+                            Microsoft Word Document Display Differently on Different Computers.
+                        </p>
+                        <ul>
+                            <li>
+                                <p>
+                                    Microsoft Word documents display differently on different systems
+                                    because of differences between the systems.
+                                    Getting Microsoft Word documents to display identically typically means
+                                    processing them into something else.
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>
+                            Different printer, different look for Microsoft word document
+                        </p>
+                        <ul>
+                            <li>
+                                <p>
+                                    Word processors like Word are generally designed to produce documents to be printed.
+                                    When Word displays a document in a print layout or page view,
+                                    it uses the characteristics of the currently-selected printer to determine
+                                    what the document will look like when printed.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Printer characteristics vary a lot. Default margins, paper size, and
+                                    other differences in both capability and configuration can make a document appear
+                                    very differently when viewed or printed on one system as compared to another.
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

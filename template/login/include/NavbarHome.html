@@ -1,6 +1,9 @@
-<nav class="navbar navbar-expand-md navbar-light" style="background-color: #3da7f5;">
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #2458C6;">
     <!-- Navbar content -->
-    <a class="navbar-brand" href="#">XpressXerox</a>
+    <a class="navbar-brand" href="#">
+        <span class="Brand-X1">X</span><span class="Brand-press">press</span><span class="Brand-X2">X</span><span
+            class="Brand-erox">erox</span>
+    </a>
     <button aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"
             class="navbar-toggler" data-target="#navbarsExampleDefault" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
@@ -8,21 +11,31 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
+            {% if user.is_authenticated %}
+                {% if user.username != "amirkanai01@gmail.com" %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url  'action:userDashboard'  %}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url  'action:docxToPdf'  %}">Convert To PDF<span class="sr-only">(current)</span></a>
+                </li>
+                {% else %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url  'action:adminDashboard'  %}">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'action:pendingOrder'%}">Check Order</a>
+                    </li>
+
+                {% endif %}
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url  'user:Logout'  %}">Logout <span class="sr-only">(current)</span></a>
+            </li>
+            {% else %}
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            {% if user.is_authenticated %}
-            <li class="nav-item active">
-                {% if user.username != "amirkanai01@gmail.com" %}
-                    <a class="nav-link" href="{% url  'action:userDashboard'  %}">{{user.username}}</a>
-                {% else %}
-                    <a class="nav-link" href="{% url  'action:adminDashboard'  %}">{{user.username}}</a>
-                {% endif %}
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url  'user:Logout'  %}">LogOut <span class="sr-only">(current)</span></a>
-            </li>
-            {% else %}
             <li class="nav-item active">
                 <a class="nav-link" href="{% url  'user:register'  %}">Register</a>
             </li>
@@ -30,6 +43,14 @@
                 <a class="nav-link" href="{% url  'user:login'  %}">Log In <span class="sr-only">(current)</span></a>
             </li>
             {% endif %}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url  'About'  %}">About</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url  'FAQ'  %}">F.A.Q.</a>
+            </li>
         </ul>
     </div>
 </nav>

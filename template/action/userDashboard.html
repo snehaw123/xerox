@@ -9,7 +9,7 @@
                     <br>
                     <div class="card">
                         <div class="card-body">
-
+                            <h3 class="card-title">Upload File section </h3>
                             <div class="form-group text-center">
 
                                 <label class="input-group-text custom-label"> You Can Upload Multiple Files </label>
@@ -32,7 +32,7 @@
                                 <select class="form-control" name="printOption" required>
                                     <option value="0">Print Options</option>
                                     <option value="1">Per Page B&W</option>
-                                    <option value="2">Back to Back Page B&W</option>
+                                    <option value="2">Per Page Double Side B&W</option>
                                     <option value="3">Per Page Color</option>
                                 </select>
 
@@ -50,6 +50,7 @@
         <div class="card">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="card-title">Files you have uploaded</h3>
                     {% for key, value in complex_Dict.items %}
                     <div class="card">
                         <div class="card-body">

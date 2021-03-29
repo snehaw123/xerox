@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <style>
+        tr,td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+</style>
+
+</head>
+<body>
+    <p style="text-align: center; font-family: Impact, sans-serif; ">
+        <span style='font-size: 350%; color: #ed4d54'>X</span><span style='font-size: 250%;color: #c993ca'>press</span><span style='font-size: 350%;color: #8cfffb'>X</span><span style='font-size: 250%;color: #e9c224'>erox</span>
+    </p>
+    <p style="text-align: left; color: #273746; font-size: 150%;">Hi <strong style="font-weight:bold; color:#5822AB">{{email}},</strong></p>
+    <p style="text-align: left; font-family: Impact, sans-serif; font-size: 150%;">
+        <span style="font-size: 100%">Greetings from </span><span style='font-size: 150%; color: #ed4d54'>X</span><span style='font-size: 100%;color: #c993ca'>press</span><span style='font-size: 150%;color: #8cfffb'>X</span><span style='font-size: 100%;color: #e9c224'>erox.</span>
+    </p>
+    {% if STATUS == "TXN_SUCCESS" %}
+        <p style="text-align: left; color: #F47371; font-size: 150%; ">
+            Your order is placed successfully. After clicking on <strong>Print button document will go to print Queue</strong>
+            <strong style="color:#405699;font-size: 150%;">Visit Xerox Center after 1 hour and collect Print.</strong>
+        </p>
+    {% elif STATUS == "PENDING" %}
+        <p style="text-align: left; color: #F47371; font-size: 150%;">
+             It is rare that Transaction is being processed.
+            <strong style="color:#405699;font-size: 150%;">
+                Visit Xerox Center and verify your transaction details.
+                If you won't visit in 2 days. Document will get delete automatically.
+            </strong>
+        </p>
+    {% endif %}
+    <p style="text-align: left; color: #E85250; font-size: 150%;">Your <strong style="color:#405699;font-size: 150%;"> Transaction details </strong></p>
+        <table>
+        {% for key, value in response_dict.items%}
+            {% if key != "MID" and key != "RESPCODE" %}
+                <tr>
+                    <td style='font-size: 150%; color: #ed4d54 '>{{key}} </td>
+                    <td style='font-size: 150%;color: #c993ca'>{{value}}</td>
+                </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    <p style="text-align: left; color:#CB9037;"><strong style="font-size: 150%;">Thanks and Regards,</strong></p>
+    <p style="text-align: left; font-family: Impact, sans-serif; font-size: 150%;">
+        <span style='font-size: 150%; color: #ed4d54'>X</span><span style='font-size: 100%;color: #c993ca'>press</span><span style='font-size: 150%;color: #8cfffb'>X</span><span style='font-size: 100%;color: #e9c224'>erox</span>
+    </p>
+</body>

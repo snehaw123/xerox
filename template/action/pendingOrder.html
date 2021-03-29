@@ -1,0 +1,48 @@
+{% extends 'login/LayoutHome.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4>
+                <span>
+                    <a class="btn btn-success" href="{% url 'action:adminDashboard' %}" role="button">Check Main Dashboard</a>
+                </span>
+                 <span>
+                    <a class="btn btn-info" href="{% url 'action:pendingOrder' %}" role="button">Recheck </a>
+                </span>
+                <span>
+                    <a class="btn btn-danger" href="{% url 'action:deleteOldOrderID' %}" role="button">Delete Old order</a>
+                </span>
+            </h4>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col" style="background-color: #FADD57;">#</th>
+                <th scope="col" style="background-color: #FADD57;">Order Id</th>
+                <th scope="col" style="background-color: #FADD57;">Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for orderId in subfolders %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{orderId}}</td>
+                <td>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input name="orderId" type="hidden" value="{{orderId}}"/>
+                        <input class="btn btn-primary" type="submit" value="Download"/>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

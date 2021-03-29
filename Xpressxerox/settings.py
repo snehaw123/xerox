@@ -29,7 +29,7 @@ SECRET_KEY = '1-pb@c-#th_*$z030wkdl@4ae$@=f(nr5+c)ry$^^h2w$st82q-RAVIRAJ_PAWAR'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['xpressxerox.pythonanywhere.com',]
 
 
 # Application definition
@@ -89,11 +89,14 @@ WSGI_APPLICATION = 'Xpressxerox.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'XpressXerox',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '',
+        'NAME': 'xpressxerox$DjangoXpressXerox',
+        'USER': 'xpressxerox',
+        'PASSWORD': 'rootroot',
+        'HOST': 'xpressxerox.mysql.pythonanywhere-services.com',
         'PORT': '',
+        'OPTIONS': {
+            'sql_mode': 'STRICT_ALL_TABLES',
+        },
     }
 }
 
@@ -122,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE =  'UTC'
 
 USE_I18N = True
 
@@ -146,4 +149,4 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "xpressxeroxx@gmail.com"
-EMAIL_HOST_PASSWORD = "AmirAdmin"
+EMAIL_HOST_PASSWORD = "cqrhrhvgfuhenfyl"
